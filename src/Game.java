@@ -146,15 +146,15 @@ public class Game {
      * Placeholder method students can replace with real features later.
      */
     private void runPlaceholderAction() {
-        if (player == null) {
-            System.out.println("Create a player first.");
-            return;
-        }
+  
+    	    if (player == null) {
+    	        System.out.println("Create a player first.");
+    	        return;
+    	    }
 
-        System.out.println(player.getName() + " is getting ready for future missions...");
-        System.out.println("This is a placeholder for later gameplay features.");
-    }
-
+    	    System.out.println(player.getName() + " is preparing for an adventure!");
+    	    System.out.println("Your first mission is coming soon.");
+    	}
     /**
      * Ends the game loop.
      */
