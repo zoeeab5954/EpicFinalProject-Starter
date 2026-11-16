@@ -26,7 +26,7 @@ public class Game {
      * Starts the game loop.
      */
     public void start() {
-        Utils.printHeader("Welcome to the Java EPIC Final Project");
+        Utils.printHeader("Welcome to Lost Shores");
 
         while (running) {
             displayMenu();
@@ -100,6 +100,7 @@ public class Game {
         System.out.println("1. Fantasy Dungeon");
         System.out.println("2. Cyber Hacker");
         System.out.println("3. Space Explorer");
+        System.out.println("4. Survival Island");
 
         int choice = Utils.readInt(input, "Enter your theme choice: ");
 
@@ -113,6 +114,9 @@ public class Game {
             case 3:
                 player.setGameMode(GameMode.SPACE_EXPLORER);
                 break;
+            case 4:
+            	player.setGameMode(GameMode.SURVIVAL_ISLAND);
+            	break;
             default:
                 System.out.println("Invalid theme choice.");
                 return;
