@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  * Controls the main game flow and menu system.
@@ -13,6 +14,8 @@ public class Game {
     private Scanner input;
     private Player player;
     private boolean running;
+    private ArrayList<Item> inventory = new ArrayList<>();
+    private ArrayList<IslandLocation> locations = new ArrayList<>();
 
     /**
      * Constructs the game and prepares required resources.
@@ -20,6 +23,14 @@ public class Game {
     public Game() {
         input = new Scanner(System.in);
         running = true;
+        
+        inventory.add(new Item("Water", "Drinking water", 3));
+        inventory.add(new Item("Rope", "Useful for climbing", 1));
+        inventory.add(new Item("Food", "Emergency food supplies", 5));
+        
+        locations.add(new IslandLocation("Sunny Beach", "A peaceful starting area", 1));
+        locations.add(new IslandLocation("Hidden Cave", "A dark cave with unknown dangers", 7));
+        locations.add(new IslandLocation("Dense Jungle", "A forest filled with wildlife", 5));
     }
 
     /**
@@ -48,6 +59,9 @@ public class Game {
                 case 5:
                     exitGame();
                     break;
+                case 6:
+                	viewInventory();
+                	break;
                 default:
                     System.out.println("Invalid choice. Please select a valid menu option.");
             }
@@ -67,7 +81,7 @@ public class Game {
         System.out.println("3. View Player");
         System.out.println("4. Start Placeholder Action");
         System.out.println("5. Exit");
-        System.out.println("================================");
+        System.out.println("6. View Inventory");
     }
 
     /**
@@ -162,4 +176,15 @@ public class Game {
         System.out.println("Exiting program. Thanks for playing.");
         running = false;
     }
+    
+    private void viewInventory() {
+    	System.out.println("\n=== YOUR INVENTORY ===");
+    	
+    	for (Item item : inventory) {
+    		System.out.println(item.getName() + " - Quantity: "
+    				+ item.getQuantity());
+    	}
+    	}
+    
 }
+    		
